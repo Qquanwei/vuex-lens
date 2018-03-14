@@ -1,3 +1,6 @@
+![image](https://raw.githubusercontent.com/Qquanwei/vuex-lens/master/screenshot.png)
+
+
 # 开始你的优雅状态管理
 
   因为vue内建类型的特性使得写代码的时候失去了很多JavaScript强大的功能。特别是喜欢functional的同学在处理列表时只能用蹩脚的vue.array定义的方法解决问题。这些都给我们操作数据(大部份时列表数据)时带来不可忽视的开发体验。这也是vuex-lens存在的原因，用一种更加优雅的方式去解决数据更新问题。
@@ -23,6 +26,7 @@ npm install vuex-lens --save
 * get
 * set
 * over
+* propLens
 * lens
 * lensToVueLens
 
