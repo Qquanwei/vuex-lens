@@ -16,7 +16,7 @@
 
 # 安装
 
-```
+```shell
 npm install vuex-lens --save
 ```
 
@@ -34,7 +34,7 @@ npm install vuex-lens --save
 
 ## 创建lenses
 
-```
+```javascript
 import { propLens, lens } from 'vuex-lens';
 
 const nameL = propLens('name');
@@ -42,7 +42,7 @@ const nameL = lens((obj) => obj.name, (value, obj) => obj.name = value);
 ```
 ## 获取值
 
-```
+```javascript
 
 import { get } from 'vuex-lens';
 
@@ -53,7 +53,7 @@ console.log(name)  // -> Alice
 ```
 ## 简单写入
 
-```
+```javascript
 import { set } from 'vuex-lens';
 
 const obj = { name: 'Alice' };
@@ -66,7 +66,7 @@ console.log(obj.name) // -> Bob
 
 ## transformer
 
-```
+```javascript
 
 import { over } from 'vuex-lens';
 import { difference } from 'lodsh/difference';
@@ -92,6 +92,6 @@ over(listL, differencer(array2), obj); // 此时obj.list为减去3,5,6的list1�
 ## form 的更新
 
 
-```
+```javascript
 import { lensToVueLens, lens } from 'vuex-lens';
 ```
