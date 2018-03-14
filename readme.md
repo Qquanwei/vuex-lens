@@ -9,3 +9,79 @@
   http://fluffynukeit.com/how-functional-programming-lenses-work/
 
   这里我留言了一个通俗解释  http://functional-programming.cn/t/topic/60/2?u=qquanwei
+
+
+* 安装
+
+```
+npm install vuex-lens --save
+```
+
+* 例子
+
+
+** 创建lenses
+
+```
+import { propLens, lens } from 'vuex-lens';
+
+const nameL = propLens('name');
+const nameL = lens((obj) => obj.name, (value, obj) => obj.name = value);
+```
+
+** 获取值
+
+```
+
+import { get } from 'vuex-lens';
+
+const obj = { name: 'Alice' };
+const name = get(nameL, obj);
+
+console.log(name)  // -> Alice
+```
+
+** 简单写入
+
+```
+import { set } from 'vuex-lens';
+
+const obj = { name: 'Alice' };
+
+set(nameL, obj, 'Bob'); // 返回obj相同的对象, 此时会产生副作用 obj.name 已经被修改，会触发vue的依赖更新
+
+console.log(obj.name) // -> Bob
+```
+
+
+** transformer
+
+```
+
+import { over } from 'vuex-lens';
+import { difference } from 'lodsh/difference';
+
+const differencer = (a) => (b) => difference(b, a);
+
+const array1 = [1,2,3,4,5,6,7,8,9];
+
+const obj = {
+  list: array1
+};
+
+const array2 = [3,5,6];
+
+// 想实现的功能是 array1 - array2. 也就是difference(array1, array2);
+
+
+const listL = propLens('list');
+
+over(listL, differencer(array2), obj); // 此时obj.list为减去3,5,6的list1数组,且会触发vue的依赖更新。
+```
+
+** form 的更新
+
+
+```
+import { lensToVueLens, lens } from 'vuex-lens';
+```
