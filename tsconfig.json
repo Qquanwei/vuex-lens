@@ -1,0 +1,10 @@
+{
+    "module": "UMD",
+    "jest": {
+        "globals": {
+            "ts-jest": {
+                "tsConfigFile": "my-tsconfig.json"
+            }
+        }
+    }
+}
