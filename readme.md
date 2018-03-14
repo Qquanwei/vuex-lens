@@ -48,7 +48,7 @@ import { set } from 'vuex-lens';
 
 const obj = { name: 'Alice' };
 
-set(nameL, obj, 'Bob'); // 返回obj相同的对象, 此时会产生副作用 obj.name 已经被修改，会触发vue的依赖更新
+set(nameL, 'Bob', obj); // 返回obj相同的对象, 此时会产生副作用 obj.name 已经被修改，会触发vue的依赖更新
 
 console.log(obj.name) // -> Bob
 ```
