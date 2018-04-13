@@ -5,6 +5,13 @@
 
   因为vue内建类型的特性使得写代码的时候失去了很多JavaScript强大的功能。特别是喜欢functional的同学在处理列表时只能用蹩脚的vue.array定义的方法解决问题。这些都给我们操作数据(大部份时列表数据)时带来不可忽视的开发体验。这也是vuex-lens存在的原因，用一种更加优雅的方式去解决数据更新问题。
 
+  为什么做这个库，如果你之前是fp的拥趸，或者在react中使用ramda,都应该了解fp与vue的风格是格格不入的,如果使用immutable风格的数据会导致大量数据重建和触发依赖更新, 所以本项目就是使用vue风格非immutable的lens库.
+
+特点:
+
+  - 非immutable
+  - 非currable
+
   lenses为一个古老的functional programming概念，这里不作太多解释了，如果没使用过的同学下面找了一些资料。
 
   https://medium.com/javascript-inside/an-introduction-into-lenses-in-javascript-e494948d1ea5
